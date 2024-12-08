@@ -7,8 +7,9 @@ import { BiCart } from "react-icons/bi";
 import { FaBeer } from "react-icons/fa";
 import LowerHeader from "./LowerHeader";
 import { DataContext } from "../DataProvider/DataProvider";
+import { auth } from "../../utility/firebase";
 function Header() {
-  const [{ basket }, dispatch] = useContext(DataContext);
+  const [{ user, basket }, dispatch] = useContext(DataContext);
 
   const totalItem = basket?.reduce((amount, item) => {
     return item.amount + amount;
@@ -53,16 +54,31 @@ function Header() {
                 alt=""
               />
 
-              <section>
+              <select name="" id="">
                 <option value="">EN</option>
-              </section>
+                <br />
+                <option value="">Am</option>
+                <br />
+                <option value="">Ar</option>
+                <br />
+                <option value="">Tur</option>
+              </select>
             </Link>
           </div>
           {/* three component */}
-          <Link to="/auth">
+          <Link to={!user && "/auth"}>
             <div>
-              <p>sign In</p>
-              <span>Account & Lists </span>
+              {user ? (
+                <>
+                  <p>Hello{user?.email?.split("@")[0]}</p>
+                  <span onClick={() => auth.signOut()}>Sign Out</span>
+                </>
+              ) : (
+                <>
+                  <p>Hello,Sign In</p>
+                  <span>Account & Lists </span>
+                </>
+              )}
             </div>
           </Link>
           {/* orders */}

@@ -46,9 +46,9 @@
   gap: 50px;
   justify-items: center;
 }
-/* .product__container section {
+.product__container section {
   margin: 0 auto;
-} */
+}
 .product__flexed {
   box-shadow: none;
   height: auto;
@@ -72,9 +72,12 @@
   width: 300px !important;
   height: auto;
 }
-@media screen and(max-width:768px) {
+@media screen and (max-width: 768px) {
   .product__flexed {
     display: flex;
     flex-direction: column;
+  }
+  .product__flexed img {
+    width: 50% !important;
   }
 }
