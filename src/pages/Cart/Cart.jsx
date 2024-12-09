@@ -4,7 +4,7 @@ import { DataContext } from "../../components/DataProvider/DataProvider";
 import ProductCard from "../../components/product/ProductCard";
 import CurrencyFormat from "../../components/currencyFormat/CurrencyFormat";
 import { Link } from "react-router-dom";
-import classes from "./cart.module.css";
+import classes from "./Cart.module.css";
 import { Type } from "../../utility/action.type";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import { MdOutlineKeyboardArrowUp } from "react-icons/md";
